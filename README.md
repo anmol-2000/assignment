@@ -7,7 +7,7 @@ This repository is for the submission of the assignment.
 1. First, clone the repository:
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/anmol-2000/assignment.git
 
 2. Navigate to the assignment folder:
     ```bash
