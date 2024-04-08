@@ -9,7 +9,6 @@ FORMATTER = logging.Formatter('%(asctime)s - %(levelname)s - %(lineno)d - %(mess
 def get_db_connection():
     try:
         conn = sqlite3.connect('address_book.db')
-        breakpoint()
         cursor = conn.cursor()
         cursor.execute(''' Create Table If Not Exists addresses_book
         (address_id Integer Primary Key AUTOINCREMENT, street Text, city Text, state Text, country Text, latitude Real, longitude Real)''')
@@ -29,6 +28,9 @@ def get_file_handler(log_file):
     return file_handler
 
 def get_logger(logger_name):
+    logs_dir = "logs"
+    if not os.path.exists(logs_dir):
+        os.makedirs(logs_dir, exist_ok=True)
     logger = logging.getLogger(logger_name)
     logger.setLevel(logging.DEBUG)
     logger.addHandler(get_console_handler())
